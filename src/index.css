@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 34 33% 95%;
+    --foreground: 0 0% 7%;
+
+    --card: 36 30% 97%;
+    --card-foreground: 0 0% 7%;
+
+    --popover: 34 33% 95%;
+    --popover-foreground: 0 0% 7%;
+
+    --primary: 0 0% 7%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 34 20% 90%;
+    --secondary-foreground: 0 0% 7%;
+
+    --muted: 34 15% 88%;
+    --muted-foreground: 0 0% 33%;
+
+    --accent: 28 80% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 34 20% 85%;
+    --input: 34 20% 88%;
+    --ring: 28 80% 58%;
+
+    --radius: 0.75rem;
+
+    --gradient-warm: linear-gradient(135deg, hsl(34, 33%, 95%) 0%, hsl(30, 75%, 80%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(34, 33%, 96%) 0%, hsl(30, 40%, 90%) 60%, hsl(28, 60%, 82%) 100%);
+    --shadow-card: 0 2px 16px -2px hsla(30, 30%, 50%, 0.08);
+    --shadow-card-hover: 0 8px 32px -4px hsla(30, 30%, 50%, 0.16);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-5 md:px-8 lg:px-16;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .gradient-bg {
+    background: var(--gradient-hero);
+  }
+
+  .card-elevated {
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .card-elevated:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+
+  .font-script {
+    font-family: 'Dancing Script', cursive;
+  }
+
+  .text-accent-brand {
+    color: hsl(var(--accent));
+  }
+
+  .fade-mask-bottom {
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  }
+
+  .animate-in {
+    animation: fadeSlideIn 0.6s ease-out both;
+  }
+  .animate-in-delay-1 { animation-delay: 0.1s; }
+  .animate-in-delay-2 { animation-delay: 0.2s; }
+  .animate-in-delay-3 { animation-delay: 0.3s; }
+  .animate-in-delay-4 { animation-delay: 0.4s; }
+
+  .info-bar {
+    @apply bg-card/80 backdrop-blur-sm border border-border rounded-2xl;
+  }
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
