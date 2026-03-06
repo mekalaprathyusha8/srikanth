@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
     allowedHosts: [
-      "heterographical-june-indistinguishably.ngrok-free.dev "
+      'heterographical-june-indistinguishably.ngrok-free.dev'
     ],
     hmr: {
       overlay: false,
